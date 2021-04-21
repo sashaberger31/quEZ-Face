@@ -1,5 +1,5 @@
 # quEZ-Face 
-The most painful yet *function*al q-analog (prounounced /kwˈænəˌlɔg/) multiple zeta calculator on the internet, quEZ-face (prounounced /kwˈiːzifeɪs/) is designed to assist in any and all computation involving MZVs, AMZVs, CMZVs, or their q-analogs, the qMZVs (pronounced /kwˈəmziviːz/). 
+The most painful yet *function*al q-analog (prounounced /kwˈænəˌlɔg/) multiple zeta calculator on the internet, quEZ-Face (prounounced /kwˈiːzifeɪs/) is designed to assist in any and all computation involving MZVs, AMZVs, CMZVs, or their q-analogs, the qMZVs (pronounced /kwˈəmziviːz/). 
 
 The most *fun*ctional!
 
