@@ -1,13 +1,11 @@
-# quEZ-Face
-The most painful yet *function*al q-analog (prounounced /kwˈænəˌlɔg/) multiple zeta calculator on the internet!
+# quEZ-Face 
+The most painful yet *function*al q-analog (prounounced /kwˈænəˌlɔg/) multiple zeta calculator on the internet, quEZ-face (prounounced /kwˈiːzifeɪs/) is designed to assist in any and all computation involving MZVs, AMZVs, CMZVs, or their q-analogs, the qMZVs (pronounced /kwˈəmziviːz/). 
 
 The most *fun*ctional!
 
 If anyone not associated with The Bishop's School stumbled on this site, **let us know!**.
 
 If anyone not associated with the field of zetology stumbled on this site **run away and never ever return!**
-
-quEZ-Face is based on a fast method for computing multiple zeta values with the help of q-analog forms.
 
 # About
 We are heavily inspired by the widely beloved online zeta calculator "EZ-Face" of the Center for Experimental and Constructive Mathematics. However, this calculator is focused on a q-analog of the MZV's, as testing conjectures relating to these requires an immense amount of algebra and computation.
