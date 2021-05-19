@@ -1,5 +1,6 @@
 # Main file for quEZ-Face
 import math
+import cmath
 
 # q-Library
 class qSeries:
@@ -126,9 +127,9 @@ def multinom(kList):
   
   return ans
 
-class TPolynom:
+class Polynom:
   """
-  A class to capture the algebraic behavior of the polynomials of T 
+  A class to capture the algebraic behavior of the polynomials 
   produced by the regularized (alternating) multiple zeta values.
   """
   def __init__(self, initDict = dict()):
@@ -137,8 +138,69 @@ class TPolynom:
     else:
       self.termsDict = dict({0:1})
     
+  def __int__ (self):
+    return max([power for power in self.termsDict.keys()])
+  
   def __add__ (self, other):
-  def __str__(self, other)
+    newDict = self.termsDict
+    for power in other.termsDict.keys():
+      if power in newDict:
+        newDict[power] += other.termsDict[power]
+      else:
+        newDict[power] = other.termsDict[power]
+    return Polynom(power)
+  
+  def __mult__(self,other):
+    newDict = dict()
+    for power1, coeff1 in self.termsDict.items():
+      for power2, coeff2 in q2.termsDict.items():
+        if power1+power2 in newDict:
+          newDict[power1+power2] += coeff1*coeff2
+        elif power1+power2 <= n:
+          newDict[power1+power2] = coeff1*coeff2
+    return Polynom(initDict = newDict)
+  
+  def __pow__
+
+  def __str__(self, other):
+
+
+"""
+FAST FOURIER TRANSFORM IMPLEMENTATION
+"""
+
+def RecursiveDFT(n, aList = [])
+  if n == 1:
+    return aList
+  omega = 1
+  omega_n = cmath.rect(1, 2*math.pi/n)
+  aEven = [aList[2n] for n in range(math.floor((n-2)/2))]
+  aOdd = [aList[2n+1] for n in range(math.floor((n-2)/2))]
+  aEvenTransform = RecursiveDFT(n/2, aEven)
+  aOddTransform = RecursiveDFT(n/2, aOdd)
+  aTransform = []
+  for k in range(n/2):
+    aTransform[k] = aEvenTransform[k] + omega*aOddTransform[k]
+    aTransform[k+n/2] = aEvenTransform[k] - omega*aOddTransform[k]
+    omega = omega*omega_n
+  return aTransform
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 print("Result 1")
 #qMZVPrime([4,3], 11).qAdd(qMZVPrime([4,3], 11), 11).qAdd(qMZVPrime([4,3], 11), 11).qAdd(qMZVPrime([4,3], 11), 11).qAdd(qMZVPrime([3,4], 11), 11).qAdd(qMZVPrime([3,4], 11), 11).qAdd(qMZVPrime([3,4], 11), 11).qAdd(qMZVPrime([5,2], 11), 11).qDump()
 print("Result 2")
