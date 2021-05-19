@@ -34,18 +34,15 @@ def DFT(aList):
   Use the RecursiveDFT function to perform a DFT of aList. Expects and returns a list.
   """
   transformDict = RecursiveDFT(aList, -1)
-  retList = []
-  for i in range(len(transformDict)):
-    retList.append(transformDict[i])
-  return retList
+  return transformDict
 
 def InverseDFT(aList):
   """
   Use the RecursiveDFT function to perform an inverse DFT of aList. Expects and returns a list.
   """
   transformDict = RecursiveDFT(aList, 1)
-  retList = []
-  for i in range(len(transformDict)):
-    retList.append(1/len(aList)* (transformDict[i]))
-  return retList
+  newDict = {}
+  for key, item in transformDict.items():
+    newDict[key] = (1/len(aList)) * transformDict[key]
+  return newDict
 
