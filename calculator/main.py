@@ -7,7 +7,7 @@ import fourier
 class qSeries:
   def __init__(self, initDict  = None):
     """
-    Purpose: Initialize the q-series instance 
+    Purpose: Initialize the q-series instance
     Parameters: initDict - which is a dictionary with keys that are powers and values that are the coefficient of that power
     """
     self.termsDict = dict()
@@ -20,7 +20,7 @@ class qSeries:
     Get the degree of a q-polynomial.
     """
     return max([power for power in self.termsDict.keys()])
-    
+
   def qMultiply(self, q2, n):
     """
     Multiply two q-series and return a third, rounded to a maximum degree of n.
@@ -36,7 +36,7 @@ class qSeries:
 
   def __add__(self, q2, n):
     """
-    Add two q-series and return a third, rounded to a maximum degree of n. 
+    Add two q-series and return a third, rounded to a maximum degree of n.
     """
     newDict = self.qChop(n).termsDict
     # Do the addition
@@ -46,14 +46,14 @@ class qSeries:
       elif power <= n:
         newDict[power] = coeff
     return qSeries(initDict = newDict)
-  
+
   def qChop(self, n):
     newDict = dict()
     for k in range(1,n+1):
       if k in self.termsDict:
         newDict[k] = self.termsDict[k]
     return qSeries(initDict = newDict)
-  
+
   def qPow(self, k, n):
     current = self
     for i in range(k-1):
@@ -68,7 +68,7 @@ class qSeries:
 
 
 def qMZVPrimeUnmaxed(sList, m, n):
-  # \sum\limits_{m>k_1>\cdots > k_d} stuff 
+  # \sum\limits_{m>k_1>\cdots > k_d} stuff
   # qMZV(sList, m, n) = \sum\limits_{k_1 = 1}^m *q^{k_1(s_1-1)} * geo(k1, n)^s_1 qMZV(sList[1:], k_1, n)
   finalMZV = qSeries(initDict = dict())
 
@@ -80,11 +80,11 @@ def qMZVPrimeUnmaxed(sList, m, n):
     qAddedMZV = qMZVPrimeSmaller.qMultiply(qGeoGarbage, n).qMultiply(qSeries(initDict = {k_1*(sList[0]-1):1}), n)
 
     finalMZV = finalMZV.qAdd(qAddedMZV, n)
-  
+
   return finalMZV
 
 
-def qMZVPrime(sList, n): 
+def qMZVPrime(sList, n):
   longSum = qMZV()
   d = len(sList)
        longSum += (sList[i]-1) * (d-i)
@@ -99,12 +99,12 @@ def sigma(sList, n):
 
 
 
-def oSum (sList, n)  
-  oSum = qMZV(sList) 
+def oSum (sList, n)
+  oSum = qMZV(sList)
   l = len(sList)
   for i in range (1,l)
     oSum = oSum.qAdd(qMZVPrime(sList, n), n)
-   return oSum 
+   return oSum
 
 
 def geo(k, n):
@@ -116,16 +116,16 @@ def geo(k, n):
   return qSeries(initDict = newDict)
 
 def KanekoYamamoto(k, sList, nMax, chop, qBuffer):
-  
+
 
 
 def multinom(kList):
   n = sum(kList)
-  
+
   ans = math.factorial(n)
   for k in kList:
     ans /= math.factorial(k)
-  
+
   return ans
 
 
