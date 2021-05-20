@@ -89,6 +89,6 @@ class Polynom:
 
 
 
-p1 = Polynom(initDict = {0:1, 1:1}, var= "x")
+p1 = Polynom(initDict = {0:1, 1:1}, var= "x", resolution = 1)
 
-print(p1**1000)
+print(p1**50)
