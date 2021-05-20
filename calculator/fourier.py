@@ -1,13 +1,13 @@
 import cmath
 import math
 
-def RecursiveDFT(aList, pow):
+def RecursiveDFT(aList, sign):
   """
   RECURSIVE FOURIER FUNCTION:
   
   Parameters: 
     aList - a dict of complex numbers to transform (keys are the indices). Must have size 2^k
-    pow - sign of exponent of e to be used in the transform
+    sign - sign of exponent of e to be used in the transform
   Returns:
     a dictionary of complex numbers (keys are the indices) of size 2^k
   """
@@ -16,17 +16,14 @@ def RecursiveDFT(aList, pow):
   if n == 1: # Base case
     return aList
   else: # Recursive step
-    omega = 1
-    omega_n = cmath.rect(1, pow*2*math.pi/n)
     aEven = [aList[2*n] for n in range(math.floor(n//2))]
     aOdd = [aList[2*n+1] for n in range(math.floor(n//2))]
-    aEvenTransform = RecursiveDFT(aEven, -1)
-    aOddTransform = RecursiveDFT(aOdd, -1)
+    aEvenTransform = RecursiveDFT(aEven, sign)
+    aOddTransform = RecursiveDFT(aOdd, sign)
     aTransform = dict()
     for k in range(n//2):
-      aTransform[k] = aEvenTransform[k] + omega*aOddTransform[k]
-      aTransform[k+n//2] = aEvenTransform[k] - omega*aOddTransform[k]
-      omega = omega*omega_n
+      aTransform[k] = aEvenTransform[k] + cmath.rect(1, k*sign*2*math.pi/n)*aOddTransform[k]
+      aTransform[k+n//2] = aEvenTransform[k] -cmath.rect(1, k*sign*2*math.pi/n)*aOddTransform[k]
     return aTransform
 
 def DFT(aList):
